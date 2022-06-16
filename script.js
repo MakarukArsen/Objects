@@ -25,6 +25,11 @@ const students = [{
     }
 ];
 
+function getReName(word){
+    word = word.toLowerCase();
+    let result = word[0].toUpperCase() + word.slice(1);
+    return result;
+}
 // 1. Створіть функцію getSubjects(students[0] --> ["Math", "Algorithms", "Data science"] - яка повертає список предметів для конкретного студента. Зверніть увагу – назву предмету необхідно повертати з великої літери, а _ – замінити на пробіл
 const getSubjects = (students) => {
     const result = Object.keys(students.subjects);
@@ -33,11 +38,6 @@ const getSubjects = (students) => {
             result[i] = result[i].replaceAll("_", " ");
         }
         result[i] = getReName(result[i]);
-    }
-    function getReName(word){
-        word = word.toLowerCase();
-        let result = word[0].toUpperCase() + word.slice(1);
-        return result;
     }
     return result;
 }
